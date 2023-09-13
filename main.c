@@ -9,7 +9,7 @@ char *host;
 
 const char *authToken;
 
-char gateway_url = "GET /api/v10/gateway HTTP/1.1\r\nHost: discord.com\r\n"
+const char* gateway_url = "GET /api/v10/gateway HTTP/1.1\r\nHost: discord.com\r\n";
 
 int main(int argc , char *argv[]) {
     struct sockaddr_in server;
