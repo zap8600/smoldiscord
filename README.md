@@ -1,0 +1,2 @@
+# smoldiscord
+smol discord client
