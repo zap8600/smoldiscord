@@ -44,12 +44,12 @@ int main(int argc , char *argv[]) {
 		puts("Send failed");
 	}
 
-    while (1) {
-    	if( recv(socket_desc, server_reply , 2000 , 0) < 0)
-		{
-			puts("recv failed");
-		}
-		puts("Reply received\n");
-		puts(server_reply);
-    }
+    if( recv(socket_desc, server_reply , 2000 , 0) < 0)
+	{
+		puts("recv failed");
+	}
+	puts("Reply received\n");
+	puts(server_reply);
+
+	close(socket_desc);
 }
