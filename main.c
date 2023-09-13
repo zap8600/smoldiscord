@@ -7,7 +7,7 @@
 int socket_desc;
 char *host;
 
-const char *authToken;
+char *authToken;
 
 char message[200];
 
