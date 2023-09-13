@@ -9,7 +9,7 @@ char *host;
 
 const char *authToken;
 
-const char* gateway_url = "GET / HTTP/1.1\r\n\r\n";
+char message[200];
 
 int main(int argc , char *argv[]) {
     struct sockaddr_in server;
@@ -18,6 +18,8 @@ int main(int argc , char *argv[]) {
     host = argv[1];
 
     authToken = argv[2];
+
+	snprintf(message, "GET /api/v10/users/@me HTTP/1.1\r\nAuthorization: Bot %s\r\n\r\n", authToken);
 
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
 	if (socket_desc == -1)
@@ -37,7 +39,7 @@ int main(int argc , char *argv[]) {
 
     puts("Connected\n");
 
-    if( send(socket_desc , gateway_url, strlen(gateway_url) , 0) < 0)
+    if( send(socket_desc , message, strlen(message) , 0) < 0)
 	{
 		puts("Send failed");
 	}
