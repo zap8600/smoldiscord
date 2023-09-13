@@ -9,7 +9,7 @@ char *host;
 
 const char *authToken;
 
-char gateway_url = "api/v10/gateway"
+char gateway_url = "GET /api/v10/gateway HTTP/1.1\r\nHost: discord.com\r\n"
 
 int main(int argc , char *argv[]) {
     struct sockaddr_in server;
@@ -36,6 +36,11 @@ int main(int argc , char *argv[]) {
 	}
 
     puts("Connected\n");
+
+    if( send(socket_desc , gateway_url, strlen(gateway_url) , 0) < 0)
+	{
+		puts("Send failed");
+	}
 
     while (1) {
     	if( recv(socket_desc, server_reply , 2000 , 0) < 0)
