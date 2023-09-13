@@ -7,7 +7,7 @@
 int socket_desc;
 char *host;
 
-char *authToken;
+const char *authToken;
 
 char message[200];
 
@@ -19,7 +19,7 @@ int main(int argc , char *argv[]) {
 
     authToken = argv[2];
 
-	snprintf(message, "GET /api/v10/users/@me HTTP/1.1\r\nAuthorization: Bot %s\r\n\r\n", authToken);
+	snprintf(message, sizeof(message), "GET /api/v10/users/@me HTTP/1.1\r\nAuthorization: Bot %s\r\n\r\n", authToken);
 
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
 	if (socket_desc == -1)
