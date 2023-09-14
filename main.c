@@ -69,7 +69,7 @@ int main(int argc , char *argv[]) {
     wolfSSL_write(ssl, message, strlen(message));
 
 	while (1) {
-		wolfSSL_read(ssl, server_reply, 2000)
+		wolfSSL_read(ssl, server_reply, 2000);
         puts("Reply received\n");
         puts(server_reply);
 	}
