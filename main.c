@@ -65,7 +65,7 @@ int main(int argc , char *argv[]) {
 
     wolfSSL_set_fd(ssl, socket_desc);
     if(wolfSSL_connect(ssl) != SSL_SUCCESS) {
-		err_sys("Error connecting.")
+		err_sys("Error connecting.");
 	}
 
     wolfSSL_write(ssl, message, strlen(message));
