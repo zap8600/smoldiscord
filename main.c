@@ -1,8 +1,8 @@
-#include <ctype.h>
+//#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
+//#include <sys/socket.h>
+//#include <arpa/inet.h>
 #include <unistd.h>
 #include <wolfssl/options.h>
 #include <wolfssl/ssl.h>
