@@ -66,17 +66,13 @@ int main(int argc , char *argv[]) {
     wolfSSL_set_fd(ssl, socket_desc);
     wolfSSL_connect(ssl);
 
-    if( wolfSSL_write(ssl, message, strlen(message)) < 0)
-    {
-        puts("Send failed");
-    }
+    wolfSSL_write(ssl, message, strlen(message));
 
-    if( wolfSSL_read(ssl, server_reply, 2000) < 0)
-    {
-        puts("recv failed");
-    }
-    puts("Reply received\n");
-    puts(server_reply);
+	while (1) {
+		wolfSSL_read(ssl, server_reply, 2000)
+        puts("Reply received\n");
+        puts(server_reply);
+	}
 
     //close(socket_desc);
     wolfSSL_free(ssl);
