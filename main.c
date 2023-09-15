@@ -129,7 +129,7 @@ int main(int argc, char** argv)
 
     /* Connect to wolfSSL on the server side */
     if ((ret = wolfSSL_connect(ssl)) != SSL_SUCCESS) {
-        fprintf(stderr, "ERROR: failed to connect to wolfSSL\n");
+        fprintf(stderr, "ERROR: failed to connect to wolfSSL. %d\n", ret);
         goto cleanup;
     }
 
